@@ -1,5 +1,7 @@
 <template>
-<p>购物车</p>
+<div class="head">
+  <div class="top"></div>
+</div>
 </template>
 
 <script>
@@ -8,6 +10,13 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="stylus" rel="stylesheet/stylus">
+.head
+  width 7.5rem
+  height 3.56rem
+  .top
+    width: 6.9rem
+    height: 0.88rem
+    margin 0 0.3rem
 
 </style>

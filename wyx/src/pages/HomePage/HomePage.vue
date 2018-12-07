@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bigWrap">
     <div class="wrap">
       <div class="top">
         <div class="logo"></div>
@@ -166,7 +166,7 @@
       </ul>
 
     </div>
-
+  <div class="dd">到底啦</div>
   </div>
 </template>
 
@@ -199,490 +199,495 @@
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-
-.wrap
-  width: 100%
-  position fixed
-  top 0
-  left 0
-  z-index:100
-  background-color white
-  .top
-    width: 6.9rem
-    height: 0.56rem
-    padding 0.3rem
-    .logo
-      width: 1.38rem
-      height: 0.4rem
-      background-image url("http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/indexLogo-11d65342f9.png")
-      background-size 100% 100%
-      display inline-block
-      float left
-      margin-right 0.2rem
-    .search
-      width: 4.42rem
+.bigWrap
+  overflow hidden
+  padding-bottom 1.5rem
+  .wrap
+    width: 100%
+    position fixed
+    top 0
+    left 0
+    z-index:100
+    background-color white
+    .top
+      width: 6.9rem
       height: 0.56rem
-      display flex
-      flex-flow row nowrap
-      -webkit-box-align: center
-      align-items: center;
-      justify-content: center;
-      font-size: .37333rem;
-      background-color: #ededed;
-      border-radius: .10667rem;
-      float: left
-      .icon
-        width: 0.28rem
-        height: 0.28rem
+      padding 0.3rem
+      .logo
+        width: 1.38rem
+        height: 0.4rem
+        background-image url("http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/indexLogo-11d65342f9.png")
         background-size 100% 100%
-        margin-right 0.1rem
-        background-image url("http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/search2-2fb94833aa.png")
-      .placeholder
-        color: #666;
-        font-size 0.28rem
+        display inline-block
+        float left
+        margin-right 0.2rem
+      .search
+        width: 4.42rem
+        height: 0.56rem
+        display flex
+        flex-flow row nowrap
+        -webkit-box-align: center
+        align-items: center;
+        justify-content: center;
+        font-size: .37333rem;
+        background-color: #ededed;
+        border-radius: .10667rem;
+        float: left
+        .icon
+          width: 0.28rem
+          height: 0.28rem
+          background-size 100% 100%
+          margin-right 0.1rem
+          background-image url("http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/search2-2fb94833aa.png")
+        .placeholder
+          color: #666;
+          font-size 0.28rem
 
-    .loginBtn
-      width: 0.72rem
-      height: 0.53333rem
-      line-height: .53333rem;
-      text-align: center;
-      color: #b4282d;
-      border: 1px solid #b4282d;
-      border-radius: .10667rem;
-      margin-left 0.1rem
-      float right
+      .loginBtn
+        width: 0.72rem
+        height: 0.53333rem
+        line-height: .53333rem;
+        text-align: center;
+        color: #b4282d;
+        border: 1px solid #b4282d;
+        border-radius: .10667rem;
+        margin-left 0.1rem
+        float right
 
-  .listWrap
-    width: 7.5rem
-    height: 0.6rem
-    .list-swrap
-      width: 6.5rem
+    .listWrap
+      width: 7.5rem
       height: 0.6rem
-      overflow hidden
-      white-space nowrap
-      float left
-      .list
-        display: flex;
-        flex-flow: row nowrap
-        flex-shrink: 0
-        padding: 0 .4rem;
-        background: #fff;
+      .list-swrap
+        width: 6.5rem
+        height: 0.6rem
         overflow hidden
         white-space nowrap
-        .tab
-          width 0.879rem
-          height 0.6rem
-          float left
-          margin 0.2rem
+        float left
+        .list
+          display: flex;
+          flex-flow: row nowrap
+          flex-shrink: 0
+          padding: 0 .4rem;
+          background: #fff;
+          overflow hidden
+          white-space nowrap
+          .tab
+            width 0.879rem
+            height 0.6rem
+            float left
+            margin 0.2rem
 
-    .toggle-icon-wrap
-      width: 1rem
-      height: 0.6rem
-      float left
-      padding-top 0.25rem
-      padding-bottom 0.15rem
-      .toggle-icon
-        width: 0.3rem
-        height: 0.3rem
-        text-align center
-        background-image url("http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/arrow-down-3-a6045aadfd.png")
-        background-size 100% 100%
-        margin-left 0.2rem
+      .toggle-icon-wrap
+        width: 1rem
+        height: 0.6rem
+        float left
+        padding-top 0.25rem
+        padding-bottom 0.15rem
+        .toggle-icon
+          width: 0.3rem
+          height: 0.3rem
+          text-align center
+          background-image url("http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/arrow-down-3-a6045aadfd.png")
+          background-size 100% 100%
+          margin-left 0.2rem
 
-.swiper-container
-  width: 7.5rem
-  height: 3.69rem
-  overflow hidden
-  margin-top 2.2rem
-  .swiper-slide
+  .swiper-container
+    width: 7.5rem
+    height: 3.69rem
+    overflow hidden
+    margin-top 2.2rem
+    .swiper-slide
+      text-align center
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      img
+        width: 100%
+        height: 100%
+  .ul-grow
+    width: 100%
+    height: 0.72rem
     text-align center
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    img
-      width: 100%
-      height: 100%
-
-.ul-grow
-  width: 100%
-  height: 0.72rem
-  text-align center
-  display flex
-  justify-content space-around
-  background-color #FFEDDB
-  padding-top  0.2rem
-  .grow
-    color #B4282D
-.swiper-list
-  width: 7.5rem
-  height: 3.41rem
-  display flex
-  justify-content center
-  flex-wrap wrap
-  background-color #FFEDDB
-  padding-bottom 0.4rem
-  .item
-    width: 1.1rem
-    height 1.56rem
-    margin 0.1rem 0.2rem 0.09rem  0.2rem
-    text-align: center
-    img
+    display flex
+    justify-content space-around
+    background-color #FFEDDB
+    padding-top  0.2rem
+    .grow
+      color #B4282D
+  .swiper-list
+    width: 7.5rem
+    height: 3.41rem
+    display flex
+    justify-content center
+    flex-wrap wrap
+    background-color #FFEDDB
+    padding-bottom 0.4rem
+    .item
       width: 1.1rem
-      height 1.1rem
+      height 1.56rem
+      margin 0.1rem 0.2rem 0.09rem  0.2rem
+      text-align: center
+      img
+        width: 1.1rem
+        height 1.1rem
 
-      /*模块一*/
-.module-first
-  width: 100%
-  margin-bottom 0.3rem
-  background-color white
-  .text-wrap
-    text-align center
-    width 100%
-    padding-top 0.2rem
-    padding-bottom 0.2rem
-    position relative
-    .title-text
-      font-size 0.32rem
-      line-height 0.5rem
-      margin-left 0.2rem
-    span:before
+        /*模块一*/
+  .module-first
+    width: 100%
+    margin-bottom 0.3rem
+    background-color white
+    overflow hidden
+    .text-wrap
+      text-align center
+      width 100%
+      padding-top 0.2rem
+      padding-bottom 0.2rem
+      position relative
+      .title-text
+        font-size 0.32rem
+        line-height 0.5rem
+        margin-left 0.2rem
+      span:before
+          content: '';                 /*CSS伪类用法*/
+          background: #494949;       /*宽和高做出来的背景横线*/
+          width: 6%;
+          height:0.03rem
+          position absolute
+          left 2.5rem
+          top 0.5rem
+      span:after
         content: '';                 /*CSS伪类用法*/
         background: #494949;       /*宽和高做出来的背景横线*/
         width: 6%;
         height:0.03rem
         position absolute
-        left 2.5rem
+        left 4.8rem
         top 0.5rem
-    span:after
-      content: '';                 /*CSS伪类用法*/
-      background: #494949;       /*宽和高做出来的背景横线*/
-      width: 6%;
-      height:0.03rem
-      position absolute
-      left 4.8rem
-      top 0.5rem
 
-    .text-content
-      box-sizing border-box
-      width: 1.6rem
-      height: 0.9rem
-  .content
-    width: 7.2rem
-    height: 4.37rem
-    box-sizing border-box
-    padding-left  0.3rem
-    position relative
-    .left
-      box-sizing border-box
-      display: block
-      width: 3.43rem
-      height: 4.34rem
-      background: #F9E9CF
-      border-radius: .05333rem
-      margin-right: .05333rem
-      float: left;
-      color: #333
-      .left-text
+      .text-content
         box-sizing border-box
-        width: 3.13rem
-        height 0.48rem
-        font-size 0.3rem
-        padding 0.3rem
-      .left-img
+        width: 1.6rem
+        height: 0.9rem
+    .content
+      width: 7.2rem
+      height: 4.37rem
+      box-sizing border-box
+      padding-left  0.3rem
+      position relative
+      .left
         box-sizing border-box
-        width 2.28rem
-        height 2.29rem
-        text-align center
-        float right
-        margin 0.5rem 0.57rem
-      img
-        width:100%
-        height: 100%
+        display: block
+        width: 3.43rem
+        height: 4.34rem
+        background: #F9E9CF
+        border-radius: .05333rem
+        margin-right: .05333rem
+        float: left;
+        color: #333
+        .left-text
+          box-sizing border-box
+          width: 3.13rem
+          height 0.48rem
+          font-size 0.3rem
+          padding 0.3rem
+        .left-img
+          box-sizing border-box
+          width 2.28rem
+          height 2.29rem
+          text-align center
+          float right
+          margin 0.5rem 0.57rem
+        img
+          width:100%
+          height: 100%
 
-    .right
-      box-sizing border-box
-      width: 3.42rem
-      height 4.34rem
-      float right
-      position absolute
-      top 0
-      right 0
-      .r-top
+      .right
         box-sizing border-box
         width: 3.42rem
-        height: 1.95rem
-        background: #FBE2D3
+        height 4.34rem
+        float right
         position absolute
         top 0
-        img
-          margin-top 0.2rem
-          width: 1.5rem
-          height: 1.5rem
-          position: absolute
-          left 1.5rem
-          padding-top 0.5rem
-        .walfare
-          width: 3.13rem
-          height: 0.48rem
-          padding-left 0.2rem
-          padding-top 0.2rem
-        .today-discount
-          width: 3.13rem
-          height: 0.48rem
-          font-size 0.1rem
-          padding-left 0.2rem
-          color #7e8c8d
-        .discount
-          margin-top 0.2rem
+        right 0
+        .r-top
+          box-sizing border-box
+          width: 3.42rem
+          height: 1.95rem
+          background: #FBE2D3
+          position absolute
+          top 0
+          img
+            margin-top 0.2rem
+            width: 1.5rem
+            height: 1.5rem
+            position: absolute
+            left 1.5rem
+            padding-top 0.5rem
+          .walfare
+            width: 3.13rem
+            height: 0.48rem
+            padding-left 0.2rem
+            padding-top 0.2rem
+          .today-discount
+            width: 3.13rem
+            height: 0.48rem
+            font-size 0.1rem
+            padding-left 0.2rem
+            color #7e8c8d
+          .discount
+            margin-top 0.2rem
+            box-sizing border-box
+            position absolute
+            left: 1.8rem
+            text-align center
+            width 1rem
+            height: 1rem
+            background: #F59524
+            border-radius 50%
+            opacity 0.8
+            color white
+            padding-top .13333rem;
+            .discount-price1
+              padding 0.05rem;
+              line-height 0.3rem
+              font-size: 0.09rem
+            .riginal-price1
+              text-decoration line-through
+              line-height 0.3rem
+              font-size 0.05rem
+        .r-button
+          width: 3.43rem
+          height: 2.35rem
           box-sizing border-box
           position absolute
-          left: 1.8rem
-          text-align center
-          width 1rem
-          height: 1rem
-          background: #F59524
-          border-radius 50%
-          opacity 0.8
-          color white
-          padding-top .13333rem;
-          .discount-price1
-            padding 0.05rem;
-            line-height 0.3rem
-            font-size: 0.09rem
-          .riginal-price1
-            text-decoration line-through
-            line-height 0.3rem
-            font-size 0.05rem
-      .r-button
-        width: 3.43rem
-        height: 2.35rem
-        box-sizing border-box
-        position absolute
-        top 1.97rem
-        background: #FFECC2;
-        border-radius: 0.04rem
-        img
-          width: 2rem
-          height 2rem
-          position: absolute
-          left 1.5rem
-          padding-top 0.5rem
-        .discount2
-          margin-top 0.2rem
-          box-sizing border-box
-          position absolute
-          left: 1.8rem
-          text-align center
-          width 1rem
-          height: 1rem
-          background: #F59524
-          border-radius 50%
-          opacity 0.8
-          color white
-          .discount-price2
-            padding 0.05rem;
-            line-height 0.3rem
-            font-size: 0.09rem
-          .riginal-price2
-            text-decoration line-through
-            line-height 0.3rem
-            font-size 0.05rem
-        .to-group
-          width: 3.13rem
-          height: 0.48rem
-          padding-left 0.2rem
-          padding-top 0.2rem
-        .to-mail
-          margin-left 0.1rem
-          width: 1.3rem
-          height: 0.48rem
-          font-size 0.1rem
-          line-height 0.48rem
-          color white
-          font-weight 500
-          background-color #7e8c8d
-          opacity 0.7
-          border-radius 5%
-          text-align center
+          top 1.97rem
+          background: #FFECC2;
+          border-radius: 0.04rem
+          img
+            width: 2rem
+            height 2rem
+            position: absolute
+            left 1.5rem
+            padding-top 0.5rem
+          .discount2
+            margin-top 0.2rem
+            box-sizing border-box
+            position absolute
+            left: 1.8rem
+            text-align center
+            width 1rem
+            height: 1rem
+            background: #F59524
+            border-radius 50%
+            opacity 0.8
+            color white
+            .discount-price2
+              padding 0.05rem;
+              line-height 0.3rem
+              font-size: 0.09rem
+            .riginal-price2
+              text-decoration line-through
+              line-height 0.3rem
+              font-size 0.05rem
+          .to-group
+            width: 3.13rem
+            height: 0.48rem
+            padding-left 0.2rem
+            padding-top 0.2rem
+          .to-mail
+            margin-left 0.1rem
+            width: 1.3rem
+            height: 0.48rem
+            font-size 0.1rem
+            line-height 0.48rem
+            color white
+            font-weight 500
+            background-color #7e8c8d
+            opacity 0.7
+            border-radius 5%
+            text-align center
 
 
 
 
-        /*模块二*/
-.module-second
-  width: 100%
-  .line
-    background-color gainsboro
-    height: 0.2rem
+          /*模块二*/
+  .module-second
     width: 100%
-  .module-title
-    margin-left 0.3rem
-    margin-right 0.3rem
-    width: 6.9rem
-    height: 1rem
-    position relative
-    .left-title
-      width: 2.5rem
+    .line
+      background-color gainsboro
+      height: 0.2rem
+      width: 100%
+    .module-title
+      margin-left 0.3rem
+      margin-right 0.3rem
+      width: 6.9rem
       height: 1rem
-      font-size 0.35rem
-      white-space nowrap
-      line-height 1rem
-      font-family: PingFangSC-Regular;
-    .right-more
-      font-size 0.2rem
-      text-align right
-      position absolute
-      top 0.4rem
-      right 0.2rem
-
-  .content-list
-    width: 6.94rem
-    height: 5.28rem
-    padding-left 0.3rem
-    padding-right 0.26rem
-    padding-top 0.26rem
-    padding-bottom 0.26rem
-    position relative
-    .item1
-      width: 3.43rem
-      height: 2.6rem
-      display:inline-block
-      margin: 0 .05333rem .05333rem 0;
-      float left
       position relative
-      img
-        width: 100%
-        height: 100%
-      .top-text
-        position absolute
-        width: 3.43em
-        height: 0.33rem
-        line-height .33rem
+      .left-title
+        width: 2.5rem
+        height: 1rem
+        font-size 0.35rem
         white-space nowrap
-        cursor:pointer
+        line-height 1rem
+        font-family: PingFangSC-Regular;
+      .right-more
+        font-size 0.2rem
+        text-align right
+        position absolute
+        top 0.4rem
+        right 0.2rem
+
+    .content-list
+      width: 6.94rem
+      height: 5.28rem
+      padding-left 0.3rem
+      padding-right 0.26rem
+      padding-top 0.26rem
+      padding-bottom 0.26rem
+      position relative
+      .item1
+        width: 3.43rem
+        height: 2.6rem
+        display:inline-block
+        margin: 0 .05333rem .05333rem 0;
+        float left
+        position relative
+        img
+          width: 100%
+          height: 100%
+        .top-text
+          position absolute
+          width: 3.43em
+          height: 0.33rem
+          line-height .33rem
+          white-space nowrap
+          cursor:pointer
+          margin-top 0.3rem
+          font-size 0.28rem
+          left 1rem
+          top 0
+          color black
+        .button-text-left
+          width: 3.43rem
+          height: 0.36rem
+          position absolute
+          left 1rem
+          top 0.7rem
+          font-size 0.2rem
+        .button-text-right
+          width: 0.7rem
+          height: 0.32rem
+          background-color rgb(203, 182, 147)
+          position absolute
+          right 0.8rem
+          top 0.7rem
+          font-size 0.2rem
+          color white
+          text-align center
+
+      .item2
+        width: 3.43rem
+        height: 2.6rem
+        display:inline-block
+        position absolute
         margin-top 0.3rem
-        font-size 0.28rem
-        left 1rem
         top 0
-        color black
-      .button-text-left
+        right 0.3rem
+        .top-text
+          width: 3.43rem
+          height: .33rem
+          position absolute
+          text-align center
+          left 0.2rem
+          top 0.5rem
+          color black
+        .top-text2
+          width 3.43rem
+          height 0.36rem
+          position absolute
+          left 1.5rem
+          top 0.9rem
+          font-size 0.2rem
+          color #7e8c8d
+
+        img
+          width: 100%
+          height: 100%
+      .item3
         width: 3.43rem
-        height: 0.36rem
+        height: 2.6rem
+        display:inline-block
+        margin: 0 .05333rem .05333rem 0;
         position absolute
-        left 1rem
-        top 0.7rem
-        font-size 0.2rem
-      .button-text-right
-        width: 0.7rem
-        height: 0.32rem
-        background-color rgb(203, 182, 147)
-        position absolute
-        right 0.8rem
-        top 0.7rem
-        font-size 0.2rem
-        color white
-        text-align center
+        left 0.3rem
+        top 3rem
+        .item3-top-text
+          width: 3.43rem
+          height: .33rem
+          position absolute
+          text-align center
+          left 0
+          top 0.3rem
+          color black
+        .item3-down-text
+          width 3.43rem
+          height 0.33rem
+          position absolute
+          text-align center
+          left 0
+          top 0.7rem
+          font-size 0.2rem
+          color #7e8c8d
 
-    .item2
-      width: 3.43rem
-      height: 2.6rem
-      display:inline-block
-      position absolute
-      margin-top 0.3rem
-      top 0
-      right 0.3rem
-      .top-text
+
+
+
+
+
+        img
+          width: 100%
+          height: 100%
+
+
+
+      .item4
         width: 3.43rem
-        height: .33rem
+        height: 2.6rem
+        display:inline-block
+        margin: 0 .05333rem .05333rem 0;
         position absolute
-        text-align center
-        left 0.2rem
-        top 0.5rem
-        color black
-      .top-text2
-        width 3.43rem
-        height 0.36rem
-        position absolute
-        left 1.5rem
-        top 0.9rem
-        font-size 0.2rem
-        color #7e8c8d
+        right  0.2rem
+        top 3rem
+        .item4top-text
+          width: 3.43rem
+          height: .33rem
+          position absolute
+          text-align center
+          left 0.2rem
+          top 0.3rem
+          color black
+        .item4top-text2
+          width 3.43rem
+          height 0.36rem
+          position absolute
+          left 1.5rem
+          top 0.6rem
+          font-size 0.2rem
+          color #7e8c8d
+        img
+          width: 100%
+          height: 100%
 
-      img
-        width: 100%
-        height: 100%
-    .item3
-      width: 3.43rem
-      height: 2.6rem
-      display:inline-block
-      margin: 0 .05333rem .05333rem 0;
-      position absolute
-      left 0.3rem
-      top 3rem
-      .item3-top-text
-        width: 3.43rem
-        height: .33rem
-        position absolute
-        text-align center
-        left 0
-        top 0.3rem
-        color black
-      .item3-down-text
-        width 3.43rem
-        height 0.33rem
-        position absolute
-        text-align center
-        left 0
-        top 0.7rem
-        font-size 0.2rem
-        color #7e8c8d
-
-
-
-
-
-
-      img
-        width: 100%
-        height: 100%
-
-
-
-    .item4
-      width: 3.43rem
-      height: 2.6rem
-      display:inline-block
-      margin: 0 .05333rem .05333rem 0;
-      position absolute
-      right  0.2rem
-      top 3rem
-      .item4top-text
-        width: 3.43rem
-        height: .33rem
-        position absolute
-        text-align center
-        left 0.2rem
-        top 0.3rem
-        color black
-      .item4top-text2
-        width 3.43rem
-        height 0.36rem
-        position absolute
-        left 1.5rem
-        top 0.6rem
-        font-size 0.2rem
-        color #7e8c8d
-      img
-        width: 100%
-        height: 100%
-
+  .dd
+    text-align center
+    color #7e8c8d
 </style>

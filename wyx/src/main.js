@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import './mock/mockServer'
+import store from './store/index.js'
 
 Vue.config.productionTip = false
 
@@ -11,5 +13,6 @@ new Vue({
   el: '#app',
   components: { App },
   template: '<App/>',
-  router
+  router,
+  store
 })

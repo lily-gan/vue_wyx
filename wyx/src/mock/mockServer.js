@@ -1,16 +1,21 @@
-/*
-使用mockjs来mock数据/接口的模块
- */
-import Mock from 'mockjs'
-import data from './data.json' // webpack在打包时自动解析为js对应的类型(对象)
+/*使用mock.js来mock数据/接口模块*/
+import Mock from "mockjs"
+import data from './msite.json'
+/*首页*/
+//暴露接口:轮播图
+Mock.mock('/focusList',{code:0,data:data.focusList});
+//轮播图下面三个并排字符
+Mock.mock('/policyDescList',{code:0,data:data.policyDescList});
+//暴露接口:轮播图下面10个小图片列表
+Mock.mock('/kingKongModule',{code:0,data:data.kingKongModule});
+//暴露接口:新人专享礼
+Mock.mock('/indexActivityModule',{code:0,data:data.indexActivityModule});
+//暴露接口: 品牌制造商直供
+Mock.mock('/tagList',{code:0,data:data.tagList});
 
-// 暴露接口: /goods
-Mock.mock('/goods', {code: 0, data: data.goods})
-// 暴露接口: /ratings
-Mock.mock('/ratings', {code: 0, data: data.ratings})
 
-// 暴露接口: /info
-Mock.mock('/info', {code: 0, data: data.info})
 
-// console.log('执行了mockServer')
+
+
+
 

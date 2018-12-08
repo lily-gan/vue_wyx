@@ -11,7 +11,6 @@
     name: 'App',
     components: {
       FooterGuide
-
     }
   }
 </script>

@@ -31,67 +31,23 @@
     </div>
     <div class="swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="./images/swiper1.jpg">
+        <div class="swiper-slide" v-for="(item,index) in focusList">
+        <img :src="item.picUrl">
         </div>
-        <div class="swiper-slide">
-          <img src="./images/swiper2.jpg">
-        </div>
-        <div class="swiper-slide"><img src="./images/swiper3.jpg"></div>
-        <div class="swiper-slide"><img src="./images/swiper5.jpg"></div>
-        <div class="swiper-slide"><img src="./images/swiper6.jpg"></div>
-        <div class="swiper-slide"><img src="./images/swiper7.jpg"></div>
-        <div class="swiper-slide"><img src="./images/swiper8.jpg"></div>
       </div>
       <!-- 如果需要分页器 -->
       <div class="swiper-pagination"></div>
 
     </div>
-    <ul class="ul-grow">
-      <li class="grow "><i class="iconfont icon-gouhao "></i>网易自营品牌</li>
-      <li class="grow "><i class="iconfont icon-gouhao "></i>30天无忧退货</li>
-      <li class="grow "><i class="iconfont icon-gouhao "></i>48小时快速退款</li>
+    <ul class="ul-grow" v-if="policyDescList.length">
+      <li class="grow "><i class="iconfont icon-gouhao "></i>{{policyDescList[0].desc}}</li>
+      <li class="grow "><i class="iconfont icon-gouhao "></i>{{policyDescList[1].desc}}</li>
+      <li class="grow "><i class="iconfont icon-gouhao "></i>{{policyDescList[2].desc}}</li>
     </ul>
     <div class="swiper-list">
-      <div class="item">
-        <img src="http://yanxuan.nosdn.127.net/98b6a6fc32f1fea861934816729e2cf5.png"/>
-        <span>居家</span>
-      </div>
-      <div class="item">
-        <img class="img" src="http://yanxuan.nosdn.127.net/46d33b9a9fbb659fcbac37ec58d51e62.png">
-        <span>鞋包</span>
-      </div>
-      <div class="item">
-        <img class="img" src="http://yanxuan.nosdn.127.net/31831ada59dc10319cba195620ed9ed0.png">
-        <span>服饰</span>
-      </div>
-      <div class="item">
-        <img class="img" src="http://yanxuan.nosdn.127.net/45833c71d4b0d0de0755a20f893fa25f.png">
-        <span>电器</span>
-      </div>
-      <div class="item">
-        <img class="img" src="http://yanxuan.nosdn.127.net/2fde77529e90a26427d1c02faa3bfbf6.png">
-        <span>婴童</span>
-      </div>
-      <div class="item">
-        <img class="img" src="http://yanxuan.nosdn.127.net/15e364ca93313bbd6e87dfcba7ae7b74.png">
-        <span>电器</span>
-      </div>
-      <div class="item">
-        <img class="img" src="http://yanxuan.nosdn.127.net/793bca13bb931475ea7f0c00299362bb.png">
-        <span>电器</span>
-      </div>
-      <div class="item">
-        <img class="img" src="http://yanxuan.nosdn.127.net/fc3e359da08577228354da61ea912c99.png">
-        <span>电器</span>
-      </div>
-      <div class="item">
-        <img class="img" src="http://yanxuan.nosdn.127.net/97eb6fd2c7ea76a3a42b9dafa3bd6543.png">
-        <span>电器</span>
-      </div>
-      <div class="item">
-        <img class="img" src="http://yanxuan.nosdn.127.net/db5e2ce8c66f7db3f4282ecb24a64236.png">
-        <span>电器</span>
+      <div class="item" v-for="(item,index) in kingKongModule.kingKongList">
+        <img :src="item.picUrl"/>
+        <span>{{item.text}}</span>
       </div>
     </div>
     <!--第一个模块-->
@@ -109,28 +65,24 @@
                  src="//yanxuan.nosdn.127.net/d074d02fb86bff9bfbf4fa3010d1e1e6.png" style="display: inline;"></div>
         </div>
         <div class="right">
-          <div class="r-top">
-            <img data-original="http://yanxuan.nosdn.127.net/217edbe618d60ab813c0c4e2a8864199.png"
-                 data-src="http://yanxuan.nosdn.127.net/217edbe618d60ab813c0c4e2a8864199.png"
-                 src="http://yanxuan.nosdn.127.net/217edbe618d60ab813c0c4e2a8864199.png" style="display: inline;">
+          <div class="r-top" v-if="indexActivityModule.length">
+            <img :src="indexActivityModule[0].picUrl" style="display: inline;">
             <div class="discount">
-              <div class="discount-price1">￥99</div>
-              <div class="riginal-price1">￥69</div>
+              <div class="discount-price1">{{indexActivityModule[0].activityPrice}}</div>
+              <div class="riginal-price1">{{indexActivityModule[0].originPrice}}</div>
             </div>
-            <div class="walfare">福利社</div>
-            <div class="today-discount">今日特价</div>
+            <div class="walfare">{{indexActivityModule[0].title}}</div>
+            <div class="today-discount">{{indexActivityModule[0].subTitle}}</div>
 
           </div>
-          <div class="r-button">
-            <img data-original="http://yanxuan.nosdn.127.net/589f0990b8ba1d354a698731afacd2d4.png"
-                 data-src="http://yanxuan.nosdn.127.net/589f0990b8ba1d354a698731afacd2d4.png"
-                 src="http://yanxuan.nosdn.127.net/589f0990b8ba1d354a698731afacd2d4.png" style="display: inline;">
+          <div class="r-button" v-if="indexActivityModule.length">
+            <img :src="indexActivityModule[1].picUrl" style="display: inline;">
             <div class="discount2">
-              <div class="discount-price2">￥49</div>
-              <div class="riginal-price2">￥29</div>
+              <div class="discount-price2">{{indexActivityModule[1].activityPrice}}</div>
+              <div class="riginal-price2">{{indexActivityModule[1].originPrice}}</div>
             </div>
-            <div class="to-group">新人拼团</div>
-            <div class="to-mail">一元起包邮</div>
+            <div class="to-group">{{indexActivityModule[1].title}}</div>
+            <div class="to-mail">{{indexActivityModule[1].tag}}</div>
           </div>
         </div>
       </div>
@@ -141,30 +93,29 @@
         <div class="left-title">品牌制造商直供</div>
         <div class="right-more ">更多<span class="iconfont icon-iconfontjiantou2"></span></div>
       </div>
-      <ul class="content-list">
+      <ul class="content-list" v-if="tagList.length">
         <a class="item1">
-          <img src="http://yanxuan.nosdn.127.net/802ff06dd3ef161db046eeb8db6cb4be.jpg?imageView&thumbnail=343y260&enlarge=1"/>
-          <div class="top-text">海外制造商</div>
-          <div class="button-text-left">9.9元起</div>
+          <img :src="tagList[0].picUrl"/>
+          <div class="top-text">{{tagList[0].name}}</div>
+          <div class="button-text-left">{{tagList[0].floorPrice}}元起</div>
           <div class="button-text-right">上新</div>
         </a>
         <a class="item2">
-          <img src="http://yanxuan.nosdn.127.net/c1e97be1b9730360c9c228b6a6448bca.png?imageView&thumbnail=343y260&enlarge=1">
-          <div class="top-text">CK制造商</div>
-          <div class="top-text2">25元起</div>
+          <img :src="tagList[1].picUrl">
+          <div class="top-text">{{tagList[1].name}}</div>
+          <div class="top-text2">{{tagList[1].floorPrice}}元起</div>
         </a>
         <a class="item3">
-          <img src="http://yanxuan.nosdn.127.net/e550a44d2a7a68ed38e6cfd380e514aa.png?imageView&thumbnail=343y260&enlarge=1">
-          <div class="item3-top-text">新秀丽制造商</div>
-          <div class="item3-down-text">34.9元起</div>
+          <img :src="tagList[2].picUrl">
+          <div class="item3-top-text">{{tagList[2].name}}</div>
+          <div class="item3-down-text">{{tagList[2].floorPrice}}元起</div>
         </a>
         <a class="item4">
-          <img src="http://yanxuan.nosdn.127.net/053ecfefd033a9acd2cb95483e14fcb6.jpg?imageView&thumbnail=343y260&enlarge=1"/>
-          <div class="item4top-text">MIJI制造商</div>
-          <div class="item4top-text2">35元起</div>
+          <img :src="tagList[3].picUrl"/>
+          <div class="item4top-text">{{tagList[3].name}}</div>
+          <div class="item4top-text2">{{tagList[3].floorPrice}}元起</div>
         </a>
       </ul>
-
     </div>
   <div class="dd">到底啦</div>
   </div>
@@ -172,32 +123,42 @@
 
 <script>
   import Swiper from 'swiper'
+  import BScroll from 'better-scroll'
   import 'swiper/dist/css/swiper.css'
+  import {mapState} from "vuex"
   export default {
     name: "HomePage",
-    mounted(){
-      this.swiper()
-    },
     methods:{
       swiper(){
         new Swiper('.swiper-container', {
-          spaceBetween: 30,
-          centeredSlides: true,
           loop:true,
-          autoplay: {
-            delay: 1000,
-            disableOnInteraction: false,
-          },
+          autoplay: true,
           pagination: {
-              el: '.swiper-pagination',
-              clickable: true,
-          },
+            el: '.swiper-pagination',
+          }
         });
       }
-    }
+    },
+    watch:{
+      focusList:function(){
+        this.$nextTick(()=>{
+          this.swiper();
+        })
+      }
+    },
+    mounted(){
+      this.$store.dispatch('getFocusList');
+      this.$store.dispatch('getKingKongModule');
+      this.$store.dispatch('getIndexActivityModule');
+      this.$store.dispatch('getPolicyDescLis');
+      this.$store.dispatch('getTagList');
+    },
+    computed:{
+      ...mapState(['focusList','kingKongModule','indexActivityModule','policyDescList','tagList']),
+    },
+
   }
 </script>
-
 <style scoped lang="stylus" rel="stylesheet/stylus">
 .bigWrap
   overflow hidden
@@ -242,7 +203,6 @@
         .placeholder
           color: #666;
           font-size 0.28rem
-
       .loginBtn
         width: 0.72rem
         height: 0.53333rem
@@ -267,7 +227,7 @@
           display: flex;
           flex-flow: row nowrap
           flex-shrink: 0
-          padding: 0 .4rem;
+          padding: 0 0.4rem;
           background: #fff;
           overflow hidden
           white-space nowrap
@@ -276,7 +236,6 @@
             height 0.6rem
             float left
             margin 0.2rem
-
       .toggle-icon-wrap
         width: 1rem
         height: 0.6rem
@@ -286,6 +245,7 @@
         .toggle-icon
           width: 0.3rem
           height: 0.3rem
+          line-height 0.6rem
           text-align center
           background-image url("http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/arrow-down-3-a6045aadfd.png")
           background-size 100% 100%
@@ -339,6 +299,10 @@
       img
         width: 1.1rem
         height 1.1rem
+      span
+        text-align center
+        margin auto
+        font-size 0.26rem
 
         /*模块一*/
   .module-first
@@ -444,10 +408,10 @@
             padding-left 0.2rem
             color #7e8c8d
           .discount
-            margin-top 0.2rem
+            margin-top 0.1rem
             box-sizing border-box
             position absolute
-            left: 1.8rem
+            left: 2rem
             text-align center
             width 1rem
             height: 1rem
@@ -479,10 +443,10 @@
             left 1.5rem
             padding-top 0.5rem
           .discount2
-            margin-top 0.2rem
+            margin-top 0.1rem
             box-sizing border-box
             position absolute
-            left: 1.8rem
+            left: 2rem
             text-align center
             width 1rem
             height: 1rem

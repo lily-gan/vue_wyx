@@ -2,6 +2,8 @@
 import Mock from "mockjs"
 import data from './msite.json'
 /*首页*/
+//首页上方分类列表
+Mock.mock('/cateList',{code:0,data:data.cateList});
 //暴露接口:轮播图
 Mock.mock('/focusList',{code:0,data:data.focusList});
 //轮播图下面三个并排字符

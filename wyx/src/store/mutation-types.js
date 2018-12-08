@@ -1,4 +1,6 @@
 //包含n个mutation函数常量名称
+//接收首页上方分类列表
+export const RECEIVE_CATELIST='receive_cateList';
 //接收轮播图数组
 export const RECEIVE_FOCUSLIST='receive_focusList';
 //接收轮播图下方三个并排字符

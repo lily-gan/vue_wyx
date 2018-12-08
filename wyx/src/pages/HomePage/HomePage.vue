@@ -10,18 +10,10 @@
       </div>
       <div class="listWrap">
         <div class="list-swrap">
-          <div class="list">
+          <div class="list" v-if="cateList.length>0">
             <div class="tab">推荐</div>
-            <div class="tab">家居</div>
-            <div class="tab">鞋包配饰</div>
-            <div class="tab">服饰</div>
-            <div class="tab">电器</div>
-            <div class="tab">洗护</div>
-            <div class="tab">饮食</div>
-            <div class="tab">餐厨</div>
-            <div class="tab">婴童</div>
-            <div class="tab">文体</div>
-            <div class="tab">特色区</div>
+            <div class="tab" v-for="(item,index) in cateList" :key="index">
+              {{item.name}}</div>
           </div>
         </div>
         <div class="toggle-icon-wrap">
@@ -31,7 +23,7 @@
     </div>
     <div class="swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="(item,index) in focusList">
+        <div class="swiper-slide" v-for="(item,index) in focusList" :key="index">
         <img :src="item.picUrl">
         </div>
       </div>
@@ -147,6 +139,7 @@
       }
     },
     mounted(){
+      this.$store.dispatch('getCateList');
       this.$store.dispatch('getFocusList');
       this.$store.dispatch('getKingKongModule');
       this.$store.dispatch('getIndexActivityModule');
@@ -154,9 +147,8 @@
       this.$store.dispatch('getTagList');
     },
     computed:{
-      ...mapState(['focusList','kingKongModule','indexActivityModule','policyDescList','tagList']),
+      ...mapState(['cateList','focusList','kingKongModule','indexActivityModule','policyDescList','tagList']),
     },
-
   }
 </script>
 <style scoped lang="stylus" rel="stylesheet/stylus">

@@ -1,4 +1,5 @@
 import {
+  RECEIVE_CATELIST,
   RECEIVE_FOCUSLIST,
   RECEIVE_PLICYDESCLIST,
   RECEIVE_KINGKONGMODULE,
@@ -6,16 +7,24 @@ import {
   RECEIVE_TAGLIST
 } from './mutation-types'
 import {
+  reqCateList,
   reqFocusList,
   reqPolicyDescList,
   reqKingKongModule,
   reqIndexActivityModule,
   reqTagList
-
 } from '../api/index'
 import state from './state'
 export default {
-  //发送ajax请求
+ /*发送ajax请求*/
+  //首页上方分类列表
+  async getCateList({commit,state}){
+    const result=await reqCateList();
+    if(result.code===0){
+      const cateList=result.data;
+      commit(RECEIVE_CATELIST,cateList);
+    }
+  },
   //轮播图
   async getFocusList({commit,state}){
     const result=await reqFocusList();

@@ -1,4 +1,5 @@
 export default {
+  cateList:[],
   focusList:[], //轮播图
   policyDescList:[],
   kingKongModule:{}, //轮播图下面10个小图片列表

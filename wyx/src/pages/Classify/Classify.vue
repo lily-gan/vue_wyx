@@ -8,82 +8,56 @@
   <div class="cateNavWrap">
     <div class="nvaWrap">
       <ul>
-        <li>12.12专区</li>
-        <li>冬季专区</li>
-        <li>爆品专区</li>
-        <li>新品专区</li>
-        <li>鞋包配饰</li>
-        <li>居家</li>
-        <li>服装</li>
-        <li>电器</li>
-        <li>洗护</li>
-        <li>饮食</li>
-        <li>厨具</li>
-        <li>婴童</li>
-        <li>文体</li>
-        <li>特色区</li>
-        <li></li>
-        <li></li>
+        <li v-for="(item,index) in listText" :class="{active:currentIndex===index}" @click="getColor(index)">{{item.name}}</li>
       </ul>
     </div>
   </div>
   <div class="cateList">
-    <div class="pic">
-      <img src="./images/w9.jpg">
+    <div class="pic" v-if="listText[0]">
+      <img :src="listText[currentIndex].wapBannerUrl">
     </div>
-    <div class="list">
-      <ul>
-        <li><img src="./images/w1.png"/>
-          <span>严选明星价</span>
-        </li>
-        <li><img src="./images/w2.png"/>
-          <span>严选明星价</span>
-        </li>
-        <li><img src="./images/w3.png"/>
-          <span>严选明星价</span>
-        </li>
-        <li><img src="./images/w4.png"/>
-          <span>严选明星价</span>
-        </li>
-        <li><img src="./images/w5.png"/>
-          <span>严选明星价</span>
-        </li>
-        <li><img src="./images/w6.png"/>
-          <span>严选明星价</span>
-        </li>
-        <li><img src="./images/w7.png"/>
-          <span>严选明星价</span>
-        </li>
-        <li><img src="./images/w8.png"/>
-          <span>严选明星价</span>
-        </li>
-        <li><img src="./images/w10.png"/>
-          <span>严选明星价</span>
-        </li>
-        <li><img src="./images/w11.png"/>
-          <span>严选明星价</span>
-        </li>
-        <li><img src="./images/w12.png"/>
-          <span>严选明星价</span>
-        </li>
-        <li><img src="./images/w13.png"/>
-          <span>严选明星价</span>
-        </li>
-        <li><img src="./images/w14.png"/>
-          <span>严选明星价</span>
-        </li>
-      </ul>
+    <div v-if="listText[currentIndex]">
+    <Content1 :currentIndex="currentIndex" v-if="listText[currentIndex].type===1"/>
+    <Content2 :currentIndex="currentIndex" v-if="listText[currentIndex].type===0"/>
     </div>
   </div>
 </div>
 </template>
-
 <script>
+  import Content1 from '../../components/classify-content1/Content-one.vue'
+  import Content2 from '../../components/classify-content2/Content-two.vue'
+  import {mapState} from "vuex"
+  import BScroll from 'better-scroll'
     export default {
-        name: "Classify"
-    }
-</script>
+        name: "Classify",
+      data(){
+        return {
+          currentIndex:0,
+          isRed:false
+        }
+      },
+      components:{
+        Content1,
+        Content2
+      },
+      computed:{
+        ...mapState(['listText']),
 
+      },
+      mounted(){
+          this.$store.dispatch('getListText',
+            new BScroll('.nvaWrap',{
+            scrollY: true,
+            click: true
+          }));
+      },
+      methods:{
+          getColor(index){
+            this.currentIndex=index;
+        }
+      }
+      }
+</script>
 <style scoped lang="stylus" rel="stylesheet/stylus">
 @import "../../common/stylus/mixins.styl"
 .wrap
@@ -130,8 +104,9 @@
     position fixed
     .nvaWrap
       width 100%
+      height: 11.5rem
+      overflow hidden
       ul
-        overflow hidden
         margin-bottom 3rem
         padding-top 0.2rem
         li
@@ -147,6 +122,8 @@
           text-overflow ellipsis
           white-space nowrap
           text-align center
+          &.active
+            color: #b4282d
   .cateList
     width: 5.28rem
     height: 13.04rem
@@ -156,34 +133,11 @@
     top 0
     padding 1rem 0.3rem 0.21rem 0.3rem
     .pic
-      padding-top 0.2rem
+      padding-top 0.32rem
+      padding-bottom 0.32rem
       width: 5.28rem
       height: 1.92rem
       img
         width: 100%
         height: 100%
-    .list
-      width: 5.28rem
-      padding-bottom 2rem
-      ul
-        box-sizing border-box
-        padding-top 0.2rem
-        width: 100%
-        height: 100%
-        text-align center
-        clearFix()
-        li
-          width: 1.44rem
-          height: 2.16rem
-          float left
-          margin-right 0.3rem
-          img
-            width: 1.44rem
-            height: 1.44rem
-
-
-
-
-
-
 </style>

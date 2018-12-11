@@ -9,15 +9,15 @@
         <div class="loginBtn">登录</div>
       </div>
       <div class="listWrap">
-        <div class="list-swrap">
-          <div class="list" v-if="cateList.length>0">
-            <div class="tab">推荐</div>
-            <div class="tab" v-for="(item,index) in cateList" :key="index">
-              {{item.name}}</div>
-          </div>
+        <div class="inner">
+          <ul class="list" v-if="cateList.length>0">
+            <li class="tab" v-for="(item,index) in cateList" :key="index"
+                @click="getColor(index)" :class="{active:currentIndex===index}">
+              {{item.name}}</li>
+          </ul>
         </div>
         <div class="toggle-icon-wrap">
-          <div class="toggle-icon"></div>
+          <div class="toggle-icon iconfont icon-arrow_right "></div>
         </div>
       </div>
     </div>
@@ -32,9 +32,9 @@
 
     </div>
     <ul class="ul-grow" v-if="policyDescList.length">
-      <li class="grow "><i class="iconfont icon-gouhao "></i>{{policyDescList[0].desc}}</li>
-      <li class="grow "><i class="iconfont icon-gouhao "></i>{{policyDescList[1].desc}}</li>
-      <li class="grow "><i class="iconfont icon-gouhao "></i>{{policyDescList[2].desc}}</li>
+      <li class="grow " v-for="(item,index) in policyDescList" :key="index">
+        <img :src="item.icon"/>{{item.desc}}
+      </li>
     </ul>
     <div class="swiper-list">
       <div class="item" v-for="(item,index) in kingKongModule.kingKongList">
@@ -112,7 +112,6 @@
   <div class="dd">到底啦</div>
   </div>
 </template>
-
 <script>
   import Swiper from 'swiper'
   import BScroll from 'better-scroll'
@@ -120,6 +119,11 @@
   import {mapState} from "vuex"
   export default {
     name: "HomePage",
+    data(){
+      return{
+        currentIndex:0
+      }
+    },
     methods:{
       swiper(){
         new Swiper('.swiper-container', {
@@ -129,6 +133,10 @@
             el: '.swiper-pagination',
           }
         });
+      },
+      getColor(index){
+        this.currentIndex=index;
+
       }
     },
     watch:{
@@ -139,7 +147,14 @@
       }
     },
     mounted(){
-      this.$store.dispatch('getCateList');
+      this.$store.dispatch('getCateList',()=>{
+        this.$nextTick(()=>{
+          new BScroll('.inner',{
+            scrollX: true,
+            click: true
+          })
+        })
+      });
       this.$store.dispatch('getFocusList');
       this.$store.dispatch('getKingKongModule');
       this.$store.dispatch('getIndexActivityModule');
@@ -147,7 +162,10 @@
       this.$store.dispatch('getTagList');
     },
     computed:{
-      ...mapState(['cateList','focusList','kingKongModule','indexActivityModule','policyDescList','tagList']),
+      ...mapState(
+        ['cateList','focusList','kingKongModule',
+        'indexActivityModule','policyDescList','tagList']
+      ),
     },
   }
 </script>
@@ -205,49 +223,47 @@
         border-radius: .10667rem;
         margin-left 0.1rem
         float right
-
     .listWrap
       width: 7.5rem
-      height: 0.6rem
-      .list-swrap
+      .inner
         width: 6.5rem
         height: 0.6rem
         overflow hidden
         white-space nowrap
+        display flex
         float left
         .list
           display: flex;
-          flex-flow: row nowrap
-          flex-shrink: 0
-          padding: 0 0.4rem;
-          background: #fff;
-          overflow hidden
-          white-space nowrap
+          flex-shrink 0
+          padding: 0 0 0 0.4rem;
+          background: #fff
+          align-items space-around
+          text-align center
           .tab
-            width 0.879rem
+            width 1rem
             height 0.6rem
-            float left
-            margin 0.2rem
+            flex-shrink 0
+            line-height 0.6rem
+            align-content center
+            margin-right 0.25rem
+            &.active
+              color: #b4282d
       .toggle-icon-wrap
         width: 1rem
         height: 0.6rem
         float left
-        padding-top 0.25rem
-        padding-bottom 0.15rem
         .toggle-icon
-          width: 0.3rem
-          height: 0.3rem
+          width: 0.6rem
+          height: 0.6rem
           line-height 0.6rem
           text-align center
-          background-image url("http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/arrow-down-3-a6045aadfd.png")
           background-size 100% 100%
           margin-left 0.2rem
-
   .swiper-container
     width: 7.5rem
     height: 3.69rem
     overflow hidden
-    margin-top 2.2rem
+    margin-top 1.8rem
     .swiper-slide
       text-align center
       display: -webkit-box;
@@ -268,6 +284,8 @@
   .ul-grow
     width: 100%
     height: 0.72rem
+    font-size 0.26rem
+    line-height 0.0.26rem
     text-align center
     display flex
     justify-content space-around
@@ -275,6 +293,10 @@
     padding-top  0.2rem
     .grow
       color #B4282D
+    img
+      width: 0.3rem
+      height: 0.3rem
+      line-height 0.3rem
   .swiper-list
     width: 7.5rem
     height: 3.41rem
@@ -313,8 +335,8 @@
         line-height 0.5rem
         margin-left 0.2rem
       span:before
-          content: '';                 /*CSS伪类用法*/
-          background: #494949;       /*宽和高做出来的背景横线*/
+          content: '';
+          background: #494949;
           width: 6%;
           height:0.03rem
           position absolute

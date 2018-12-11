@@ -4,7 +4,9 @@ import {
   RECEIVE_PLICYDESCLIST,
   RECEIVE_KINGKONGMODULE,
   RECEIVE_INDEXACTIVITYMODULE,
-  RECEIVE_TAGLIST
+  RECEIVE_TAGLIST,
+  RECEIVE_LISTTEXT,
+  RECEIVE_INDENTIFY, RECEIVE_HEADLIST
 } from './mutation-types'
 import {
   reqCateList,
@@ -12,17 +14,20 @@ import {
   reqPolicyDescList,
   reqKingKongModule,
   reqIndexActivityModule,
-  reqTagList
+  reqTagList,
+  reqListText,
+  reqIndentify, reqHeadList, reqFashion
 } from '../api/index'
 import state from './state'
 export default {
  /*发送ajax请求*/
   //首页上方分类列表
-  async getCateList({commit,state}){
+  async getCateList({commit,state},cb){
     const result=await reqCateList();
     if(result.code===0){
       const cateList=result.data;
       commit(RECEIVE_CATELIST,cateList);
+      typeof cb==="function"&&cb();
     }
   },
   //轮播图
@@ -64,6 +69,41 @@ export default {
     if(result.code===0){
       const tagList=result.data;
       commit(RECEIVE_TAGLIST,tagList);
+    }
+  },
+
+  //分类页面
+  async getListText({commit,state},cb){
+    const result=await reqListText();
+    if(result.code===0){
+      const listText=result.data;
+      commit(RECEIVE_LISTTEXT,listText);
+      typeof cb==="function"&&cb();
+    }
+  },
+
+  //识物页面  推荐
+  async getIndentify({commit,state}){
+    const result=await reqIndentify();
+    if(result.code==="200"){
+      const indentify=result.data;
+      commit(RECEIVE_INDENTIFY,indentify);
+    }
+  },
+  //识物页面  头部导航list
+  async getHeadList({commit,state}){
+    const result=await reqHeadList();
+    if(result.code==="200"){
+      const headList=result.data;
+      commit(RECEIVE_HEADLIST,headList);
+    }
+  },
+  //识物页面  达人
+  async getFashion({commit,state}){
+    const result=await reqFashion();
+    if(result.code==="200"){
+      const fashion=result.data;
+      commit(RECEIVE_FASHION,fashion);
     }
   }
 }

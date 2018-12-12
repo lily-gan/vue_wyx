@@ -1,55 +1,35 @@
 <template>
   <div class="Swrap">
-    <div class="wrap">
-      <div class="head">
-        <div class="homeWrap iconfont icon-shouye1"></div>
-        <div class="mid">
-          <a class="discover">发现</a>
-          <a class="zhenxuan">甄选家</a>
-        </div>
-        <div class="search-shop">
-          <div class="search-icon iconfont icon-sousuo"></div>
-          <div class="shop iconfont icon-gouwuche1"></div>
-        </div>
-      </div>
-    </div>
-    <div class="content">
-      <!--头部list-->
-      <ul class="list">
-        <router-link class="item" v-for="(item,index) in headList"  :to="`/indentify/tab/${index}`"
-            :key="index" @click="getColor(index)"> {{item.tabName}}
-        </router-link>
-      </ul>
-    </div>
-    <keep-alive>
-      <router-view/>
-    </keep-alive>
+    <Card1  v-for="(obj,index) in fashion.result" :obj="obj" v-if="obj.type===1"/>
+    <Card2  v-for="(obj2,index) in fashion.result" :obj2="obj2" :key="index" v-if="obj2.type===2"/>
   </div>
 </template>
 <script>
+  import Banner from '../../../components/banner/banner.vue'
+  import Card1 from '../../../components/card1/card1.vue'
+  import Card2 from '../../../components/card2/card2.vue'
   import {mapState} from "vuex"
-  export default {
-    name:"Indentify",
-    data(){
-      return{
-        currentIndex:0,
-      }
-    },
-    mounted(){
-      this.$store.dispatch('getHeadList');
-    },
-    computed:{
-      ...mapState(['headList']),
-    },
-    methods:{
-      getColor(index){
-        this.currentIndex=index;
-      }
+    export default {
+        name: "Fashion",
+      components:{
+        Banner,
+        Card1,
+        Card2
+      },
+      computed:{
+        ...mapState(['headList','fashion']),
+      },
+      watch:{
+
+      },
+      mounted(){
+         this.$store.dispatch('getFashion');
+      },
     }
-  }
 </script>
+
 <style scoped lang="stylus" rel="stylesheet/stylus">
-  @import "../../common/stylus/mixins.styl"
+  @import "../../../common/stylus/mixins.styl"
 .Swrap
   padding-bottom 0.5rem
   background-color gainsboro

@@ -8,6 +8,7 @@
     </div>
     <div class="title">{{obj2.title}}</div>
     <div class="pic"><img :src="obj2.picUrl"/></div>
+    <div class="count iconfont icon-faxian-yanjing">{{obj2.readCount/1000}}K人看过</div>
   </div>
 </template>
 <script>
@@ -26,6 +27,7 @@
   padding 0.36rem 0.3rem
   margin 0.2rem 0
   background-color white
+  position: relative
   .user-name
     width: 6.9rem
     height: 0.56rem
@@ -48,7 +50,6 @@
       float: left;
       margin-left 0.1rem
 
-
   .title
     width: 6.9rem
     height: 1.04rem
@@ -66,8 +67,16 @@
     img
       widows 6.9rem
       height 3.76rem
-
-
+  .count
+    width 1.3rem
+    height 0.32rem
+    padding-top 0.08rem
+    left 0.2rem
+    color #7f7f7f
+    font-size 0.2rem
+    white-space: nowrap;
+    position: absolute
+    top: 6rem
 
 
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div v-if="indentify.ad!==null">
-    <div class="banner" v-for="(item,index) in indentify" :key="index" v-if="item.ad">
+  <div>
+    <div class="banner" v-if="item.ad">
       <img :src="item.ad.picUrl" />
     </div>
   </div>
@@ -9,8 +9,8 @@
   import {mapState} from 'vuex'
     export default {
         name: "banner",
-      computed:{
-        ...mapState(['indentify'])
+      props:{
+          item:Object
       },
     }
 </script>

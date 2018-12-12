@@ -8,7 +8,8 @@ import {
   RECEIVE_LISTTEXT,
   RECEIVE_INDENTIFY,  //识物页面  推荐
   RECEIVE_HEADLIST,   //识物页面头部导航list
-  RECEIVE_FASHION    //识物页面 达人
+  RECEIVE_FASHION,    //识物页面 达人
+  RECEIVE_USER
 }from './mutation-types.js'
 import state from './state'
 import Vue from 'vue'
@@ -34,7 +35,6 @@ export default {
   /*分类页面*/
   [RECEIVE_LISTTEXT](state,listText){
     state.listText=listText;
-
   },
   /*识物页面*/
   [RECEIVE_INDENTIFY](state,indentify){
@@ -45,6 +45,9 @@ export default {
   },
   [RECEIVE_FASHION](state,fashion){
     state.fashion=fashion;
-  }
+  },
+  [RECEIVE_USER] (state, {user}) {
+    state.user = user
+  },
 }
 

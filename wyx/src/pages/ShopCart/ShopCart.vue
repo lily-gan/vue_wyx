@@ -21,14 +21,20 @@
       <img src="./images/noCart-a8fe3f12e5.png">
       <div class="cartTitle">去添加点什么吧</div>
     </div>
-    <div class="loginbtn">登录</div>
+    <div class="loginbtn" :class="{on:$route.path==='/profile'}" @click="goTo('/profile')">登录</div>
   </div>
 </div>
 </template>
 
 <script>
     export default {
-        name: "ShopCart"
+      name: "ShopCart",
+      methods:{
+        goTo(path) {
+          /*编程式路由导航*/
+          this.$router.replace(path)
+        }
+      }
     }
 </script>
 

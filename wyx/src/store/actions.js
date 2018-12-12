@@ -6,7 +6,10 @@ import {
   RECEIVE_INDEXACTIVITYMODULE,
   RECEIVE_TAGLIST,
   RECEIVE_LISTTEXT,
-  RECEIVE_INDENTIFY, RECEIVE_HEADLIST
+  RECEIVE_INDENTIFY,
+  RECEIVE_HEADLIST,
+  RECEIVE_FASHION,
+  RECEIVE_USER
 } from './mutation-types'
 import {
   reqCateList,
@@ -16,7 +19,10 @@ import {
   reqIndexActivityModule,
   reqTagList,
   reqListText,
-  reqIndentify, reqHeadList, reqFashion
+  reqIndentify,
+  reqHeadList,
+  reqFashion,
+  reqUser
 } from '../api/index'
 import state from './state'
 export default {
@@ -101,9 +107,25 @@ export default {
   //识物页面  达人
   async getFashion({commit,state}){
     const result=await reqFashion();
+    // console.log("fashion",result);
     if(result.code==="200"){
       const fashion=result.data;
       commit(RECEIVE_FASHION,fashion);
     }
-  }
+  },
+  // 获取当前用户的异步action
+  async getUser({commit}) {
+    const result = await reqUser()
+    if(result.code===0) {
+      const user = result.data
+      console.log(user);
+      commit(RECEIVE_USER, {user})
+    }
+  },
+
+  // 保存user的同步action
+  saveUser({commit}, user) {
+    commit(RECEIVE_USER, {user})
+  },
+
 }

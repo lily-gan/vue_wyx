@@ -15,13 +15,14 @@
     <div class="contentwrap">
       <div class="logo"><img src="./images/a1.png"></div>
     </div>
-    <div class="login">
-      <div class="icon iconfont icon-shouji"></div><span>手机号码登录</span>
+    <div class="login" @click="goTo('/login')">
+      <div class="icon iconfont icon-shouji"></div>
+          <span>手机号码登录</span>
     </div>
-    <div class="login2">
+    <div class="login2" @click="goTo('/login')">
       <div class="iconpost iconfont icon-youxiang"></div><span>邮箱账号登录</span>
     </div>
-    <div class="login3">
+    <div class="login3" @click="goTo('/login')">
       手机号快速登录<span class="iconfont icon-iconfontjiantou2"></span>
     </div>
     <div class="loginWay">
@@ -33,8 +34,18 @@
 
 </template>
 <script>
+  import login from '../../pages/Login/Login.vue'
     export default {
-        name: "Profile"
+        name: "Profile",
+        methods:{
+          goTo(path) {
+            /*编程式路由导航*/
+            this.$router.replace(path)
+          }
+        },
+      components:{
+        login
+      }
     }
 </script>
 

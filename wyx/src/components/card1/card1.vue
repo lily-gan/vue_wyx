@@ -4,7 +4,7 @@
       <img :src="obj.avatar"/><span class="title">{{obj.nickname}}</span>
       <p class="con-text">{{obj.title}}</p>
       <div class="con-smalltext">{{obj.subTitle}}</div>
-      <div class="count iconfont icon-faxian-yanjing">{{obj.readCount}}人看过</div>
+      <div class="count iconfont icon-faxian-yanjing">{{obj.readCount/1000}}K人看过</div>
     </div>
     <div class="pic"><img :src="obj.picUrl"></div>
   </div>

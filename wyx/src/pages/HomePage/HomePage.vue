@@ -216,11 +216,11 @@
       .loginBtn
         width: 0.72rem
         height: 0.53333rem
-        line-height: .53333rem;
-        text-align: center;
-        color: #b4282d;
-        border: 1px solid #b4282d;
-        border-radius: .10667rem;
+        line-height: .53333rem
+        text-align: center
+        color: #b4282d
+        border: 1px solid #b4282d
+        border-radius: .10667rem
         margin-left 0.1rem
         float right
     .listWrap

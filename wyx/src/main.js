@@ -5,9 +5,13 @@ import App from './App'
 import router from './router'
 import './mock/mockServer'
 import store from './store/index.js'
-
-Vue.config.productionTip = false
-
+import VueLazyload from 'vue-lazyload'
+Vue.config.productionTip = false;
+import lazyloadimg from './common/img/lazyload.gif'
+Vue.use(VueLazyload,{
+  //内部定义了一个去全局指令:v-lazy
+   lazyloadimg
+});
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

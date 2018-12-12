@@ -12,7 +12,7 @@
       </span>
       <span>分类</span>
     </a>
-    <a href="javascript:;" class="guide_item" :class="{on:$route.path==='/indentify'}" @click="goTo('/indentify')">
+    <a href="javascript:;" class="guide_item" :class="{on:$route.path.includes('/indentify')}" @click="goTo('/indentify')">
       <span class="item_icon">
         <i class="iconfont icon-saomiaoshibie380"></i>
       </span>

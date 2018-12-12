@@ -21,3 +21,5 @@ export const RECEIVE_INDENTIFY='receive_indentify';
 export const RECEIVE_HEADLIST='receive_headList';
 /*识物页面达人*/
 export const RECEIVE_FASHION='receive_fashion';
+/* 接收用户*/
+export const RECEIVE_USER = 'receive_user'
